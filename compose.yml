@@ -1,0 +1,15 @@
+services:
+
+  dedm-backend-sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: dedm-sqlserver
+    environment:
+      SA_PASSWORD: "P@ssW0rd!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - 1433:1433 # exposed just for debugging purposes
+    volumes:
+      - sqlserver-volume-data:/var/opt/mssql
+
+volumes:
+  sqlserver-volume-data:
